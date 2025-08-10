@@ -105,7 +105,8 @@ def vid_process():
     cv.destroyWindow(winname)
     source.release()
                 
-if __name__ == "main":
+if __name__ == "__main__":
     vid_process()
+
 
 
