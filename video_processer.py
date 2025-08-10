@@ -76,7 +76,7 @@ def vid_process():
             option = canny_edge
 
         elif key == corner:
-            option = edge
+            option = corner
 
         elif key == clahe:
             option = clahe
@@ -105,5 +105,6 @@ def vid_process():
     cv.destroyWindow(winname)
     source.release()
                 
-            
+if __name__ == "main":
+    vid_process()
 
