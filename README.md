@@ -27,8 +27,8 @@ Press these keys during runtime to change the filter:
 | `n` | Normal feed |
 | `d` | Denoise (median blur) |
 | `b` | Blur |
-| `c` | Canny edge detection |
-| `e` | Corner detection |
+| `e` | Canny edge detection |
+| `c` | Corner detection |
 | `h` | CLAHE brightness normalization |
 | `ESC` | Quit application |
 
