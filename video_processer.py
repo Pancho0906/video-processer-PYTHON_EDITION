@@ -3,16 +3,16 @@ import numpy as np
 import cv2 as cv
 import sys
 
-def vid_process(save_path = None):
+def vid_process():
     #choose option by pressing these keys
     normal = ord('n') #normal feed
     denoise = ord('d')
     blur = ord('b')
-    canny_edge = ord('c')
-    edge = ord('e')
+    canny_edge = ord('e')
+    corner = ord('c')
     clahe = ord('h') #brightness normalization
 
-    edge_params = {"maxCorners" : 500,
+    corn_params = {"maxCorners" : 500,
                    "qualityLevel" : 0.2,
                    "minDistance" : 15,
                    "blockSize" : 9}
@@ -47,9 +47,9 @@ def vid_process(save_path = None):
             gray = cv.Canny(gray, 80, 150)
             frame = cv.cvtColor(gray, cv.COLOR_GRAY2BGR)
 
-        elif option == edge:
+        elif option == corner:
             gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
-            corners = cv.goodFeaturesToTrack(gray, **edge_params)
+            corners = cv.goodFeaturesToTrack(gray, **corn_params)
             #draw circles around corners
             for x,y in corners.reshape((-1,2)):
                 cv.circle(frame, (int(x),int(y)), 10, (255,0,0))
@@ -75,7 +75,7 @@ def vid_process(save_path = None):
         elif key == canny_edge:
             option = canny_edge
 
-        elif key == edge:
+        elif key == corner:
             option = edge
 
         elif key == clahe:
@@ -93,7 +93,7 @@ def vid_process(save_path = None):
 
         cv.putText(frame,
                    "Press: (n)normal, (d)denoise, (b)blur, "
-                   +"(c)edge det, (e)edge det, (h)clahe",
+                   +"(e)edge det, (c)corner det, (h)clahe",
                    (10,abs(frame.shape[0]-30)),
                    cv.FONT_HERSHEY_PLAIN,
                    1,
@@ -106,3 +106,4 @@ def vid_process(save_path = None):
     source.release()
                 
             
+
