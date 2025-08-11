@@ -16,7 +16,7 @@ def vid_process():
                    "qualityLevel" : 0.2,
                    "minDistance" : 15,
                    "blockSize" : 9}
-    cam = 1
+    cam = 0
     if len(sys.argv) > 1:
         cam = int(sys.argv[1])
 
